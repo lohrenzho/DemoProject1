@@ -28,7 +28,7 @@ environment {
           }
          stage('Build with Maven') {
             steps {
-                sh 'cd SampleWebApp && mvn clean install'
+                sh 'cd SampleWebApp && mvn clean install -Dbuild.number=${BUILD_NUMBER}'
             }
         }
 
