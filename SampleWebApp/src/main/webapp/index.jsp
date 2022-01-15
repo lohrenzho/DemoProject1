@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Welcome to ZhoTech</title>
+    <title>Welcome to Tech-O-Zho</title>
   </head>
   <body bgcolor="#7FFF00">
     <h1>Hello from TechDavez....</h1>
