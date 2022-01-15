@@ -31,6 +31,22 @@ environment {
                 sh 'cd SampleWebApp && mvn clean install'
             }
         }
+
+        stage('Deploy to Jfrog') {
+            steps {
+                rtUpload (
+                  serverId: 'my-jfrog',
+                  spec: '''{
+                        "files": [
+                          {
+                            "pattern": "**/*.war",
+                            "target": "Demo-Repo/"
+                          }
+                      ]
+                  }''',
+              )
+            }
+        }
          stage('Deploy to Tomcat') {
             steps {
                 deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: "${TOMCAT_URL}")], contextPath: 'myapp', war: '**/*.war'
